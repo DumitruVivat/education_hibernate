@@ -5,21 +5,24 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Main {
+public class Lesson_6 {
     public static void main(String[] args) {
-
-        Car car4 = new Car("Mazda", 2024, "Green", 85_000, 195.0);
         SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Car.class)
+                .configure()
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
-            session.save(car4);
+
+            Car car1 = session.get(Car.class, 6);
+            System.out.println(car1);
+            car1.setSpeed(111.1);
+            System.out.println(car1);
+
             session.getTransaction().commit();
         } finally {
             factory.close();
         }
-     }
+
+    }
 }
