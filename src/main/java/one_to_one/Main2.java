@@ -19,12 +19,18 @@ public class Main2 {
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Car car1 = new Car("AUDI",1995,"Blue",600,200.0);
-            Engine engine1 = new Engine(333,3333);
-
-            car1.setCarEngine(engine1);
-            engine1.setCar(car1);
-            session.save(engine1);
+//            Car car1 = new Car("AUDI",1995,"Blue",600,200.0);
+//            Engine engine1 = new Engine(333,3333);
+//
+//            car1.setCarEngine(engine1);
+//            engine1.setCar(car1);
+//            session.save(engine1);
+//            Lesson 17 **************************************************
+//
+//            Engine engine = session.get(Engine.class, 3);
+//            engine.getCar().setCarEngine(null);
+////            System.out.println(engine.getCar());
+//            session.delete(engine);
 
             session.getTransaction().commit();
         } catch (IllegalArgumentException e) {
