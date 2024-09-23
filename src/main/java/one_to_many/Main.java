@@ -16,17 +16,33 @@ public class Main {
 
         Session session = null;
 
-        Owner owner1 = new Owner("Vadim", 21);
-        Car car1 = new Car("AUDI", 120.0);
-        Car car2 = new Car("BMW", 222.0);
-
-        owner1.addCarToOwner(car1);
-        owner1.addCarToOwner(car2);
+//        Owner owner1 = new Owner("Bogdan", 26);
+//        Car car1 = new Car("MAZDA", 200.0);
+//        Car car2 = new Car("RENO", 160.0);
+//
+//        owner1.addCarToOwner(car1);
+//        owner1.addCarToOwner(car2);
         try {
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            session.save(owner1);
+
+//            Owner owner4 = new Owner("owner_4", 25);
+//            Car car1 = new Car("owner_4_car1", 200.0);
+//            Car car2 = new Car("owner_4_car2", 300.0);
+//            Car car3 = new Car("owner_4_car3", 400.0);
+//            Car car4 = new Car("owner_4_car4", 500.0);
+//            owner4.addCarToOwner(car1);
+//            owner4.addCarToOwner(car2);
+//            owner4.addCarToOwner(car3);
+//            owner4.addCarToOwner(car4);
+//            session.save(owner4);
+
+            Owner owner = session.get(Owner.class, 8);
+            System.out.println(owner);
+            System.out.println("-----------------------------------");
+            System.out.println("Cars");
+            System.out.println(owner.getCars());
 
             session.getTransaction().commit();
         } finally {

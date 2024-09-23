@@ -1,5 +1,6 @@
 package one_to_many;
 
+import one_to_many.entity.Owner;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -31,7 +32,10 @@ public class Lesson_23 {
 
 //            Lesson 24 *******************************************************
 
-
+//            var car1 = session.get(Car.class, 5);
+//            session.delete(car1);
+            var owner = session.get(Owner.class, 3);
+            session.delete(owner);
 
 
             session.getTransaction().commit();

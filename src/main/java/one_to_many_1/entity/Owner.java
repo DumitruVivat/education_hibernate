@@ -1,7 +1,6 @@
-package one_to_many.entity;
+package one_to_many_1.entity;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +16,10 @@ public class Owner {
     private String name;
     @Column(name = "age")
     private int age;
-    @OneToMany(cascade = CascadeType.ALL,
-               mappedBy = "owner",
-               fetch = FetchType.EAGER)
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_owner")
     private List<Car> cars;
 
     public Owner() {
@@ -67,7 +67,6 @@ public class Owner {
             cars = new ArrayList<>();
         }
         cars.add(car);
-        car.setOwner(this);
     }
 
     @Override
